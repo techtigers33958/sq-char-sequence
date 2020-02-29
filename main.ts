@@ -1,8 +1,3 @@
-function releaseBall () {
-    pins.servoWritePin(AnalogPin.P4, 45)
-    basic.pause(1000)
-    pins.servoWritePin(AnalogPin.P4, 100)
-}
 radio.onReceivedString(function (receivedString) {
     if (receivedString == "START") {
         reset()
@@ -20,6 +15,11 @@ radio.onReceivedString(function (receivedString) {
         }
     }
 })
+function releaseBall () {
+    pins.servoWritePin(AnalogPin.P4, 45)
+    basic.pause(1000)
+    pins.servoWritePin(AnalogPin.P4, 100)
+}
 function generateCharacter () {
     character = String.fromCharCode(Math.randomRange(65, 68))
     basic.showString("" + (character))
